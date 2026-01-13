@@ -1,259 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="z7wFFylGT4yhFQA2exH0xgNLkKdXMhFu6DIDjMnz_WA" />
-    <meta name="description" content="Mala Tech LLC - Empowering E-commerce with AI and Influencer-driven SaaS solutions.">
-    <title>Mala Tech LLC | AI-Powered E-commerce & SaaS Innovation</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #1e40af;
-            --primary-dark: #1e3a8a;
-            --accent: #06b6d4;
-            --accent-light: #22d3ee;
-            --purple: #8b5cf6;
-            --pink: #ec4899;
-            --text-dark: #1e293b;
-            --text-gray: #475569;
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --border: #e2e8f0;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background: var(--bg-white);
-            overflow-x: hidden;
-        }
-
-        /* Animated Background Orbs */
-        .bg-orbs {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; overflow: hidden;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .orb1 { width: 500px; height: 500px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); top: -10%; left: -10%; }
-        .orb2 { width: 400px; height: 400px; background: linear-gradient(135deg, #8b5cf6, #ec4899); top: 20%; right: -5%; animation-delay: 5s; }
-        .orb3 { width: 350px; height: 350px; background: linear-gradient(135deg, #22d3ee, #06b6d4); bottom: 10%; left: 30%; animation-delay: 10s; }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 8%; background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            font-size: 1.6rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-        }
-
-        .nav-links a {
-            text-decoration: none; color: var(--text-gray);
-            margin-left: 3rem; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Hero */
-        .hero { padding: 10rem 8% 8rem; text-align: center; position: relative; }
-        .hero h1 { font-size: clamp(3rem, 6vw, 5.5rem); margin-bottom: 1.5rem; letter-spacing: -0.03em; line-height: 1.1; font-weight: 800; }
-        .gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.25rem; max-width: 850px; margin: 0 auto 2.5rem; color: var(--text-gray); }
-
-        .ai-badge {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white; border-radius: 50px; font-size: 0.9rem; font-weight: 600;
-            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.2);
-        }
-
-        /* Sections */
-        .section { padding: 8rem 8%; }
-        .section-light { background: var(--bg-light); }
-        .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 1rem; font-weight: 800; }
-        .section-subtitle { text-align: center; color: var(--text-gray); margin-bottom: 5rem; max-width: 700px; margin: 0 auto 5rem; font-size: 1.15rem; }
-
-        /* Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .card {
-            background: white; padding: 3rem 2.5rem; border-radius: 24px; border: 2px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
-        }
-        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 20px 60px rgba(30, 64, 175, 0.15); }
-        .card-icon { font-size: 3rem; margin-bottom: 1.5rem; display: inline-block; }
-
-        /* Highlight Boxes */
-        .highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 4rem; }
-        .highlight-box { padding: 4rem 3rem; border-radius: 28px; color: white; transition: 0.4s; }
-        .ai-box { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); }
-        .creator-box { background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%); }
-
-        /* Stats */
-        .stats-container { display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap; margin-top: 3rem; }
-        .stat-number { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: rgba(255, 255, 255, 0.9); padding: 5rem 8% 3rem; text-align: center;
-        }
-        .address-box {
-            margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.05);
-            border-radius: 12px; display: inline-block; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Cookie Banner */
-        #cookie-banner {
-            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 600px; background: white; color: var(--text-dark);
-            padding: 1.5rem; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
-            z-index: 9999; border: 1px solid var(--border);
-            visibility: hidden; opacity: 0; transition: all 0.5s ease;
-        }
-        #cookie-banner.show { visibility: visible; opacity: 1; bottom: 3rem; }
-        .cookie-btn {
-            background: var(--primary); color: white; border: none; padding: 0.8rem 1.5rem;
-            border-radius: 8px; cursor: pointer; font-weight: 600; white-space: nowrap;
-        }
-
-        @media (max-width: 900px) {
-            .highlight-grid { grid-template-columns: 1fr; }
-            #cookie-banner { flex-direction: column; text-align: center; bottom: 1rem; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Instry.ai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --accent: #06b6d4;
+      --accent-light: #22d3ee;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --text-dark: #1e293b;
+      --text-gray: #475569;
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --border: #e2e8f0;
+      --maxw: 1000px;
+      --link: #1E88E5;
+      --text: #1e293b;
+      --text-secondary: #475569;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .bg-orbs {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .orb1 { width: 500px; height: 500px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); top: -10%; left: -10%; }
+    .orb2 { width: 400px; height: 400px; background: linear-gradient(135deg, #8b5cf6, #ec4899); top: 20%; right: -5%; animation-delay: 5s; }
+    .orb3 { width: 350px; height: 350px; background: linear-gradient(135deg, #22d3ee, #06b6d4); bottom: 10%; left: 30%; animation-delay: 10s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 8%; background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 9999;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text-gray);
+      margin-left: 3rem; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .hero { padding: 8rem 8% 3rem; text-align: center; position: relative; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: 1rem; letter-spacing: -0.03em; line-height: 1.1; font-weight: 800; }
+    .gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 2rem; color: var(--text-gray); }
+    .section { padding: 4rem 8%; }
+    .section-light { background: var(--bg-light); }
+    .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 1rem; font-weight: 800; }
+    .container { max-width: var(--maxw); margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: white; padding: 2rem; border-radius: 18px; border: 2px solid var(--border);
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 36px rgba(30, 64, 175, 0.12); }
+    .card::before {
+      content: ""; position: absolute; top: 0; left: 0; height: 4px; width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      opacity: 0.9;
+    }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .card p { color: var(--text-dark); margin: 0 0 1.75rem; line-height: 1.85; }
+    .card ul, .card ol { color: var(--text-dark); margin: 0 0 1.75rem 1.5rem; padding: 0; }
+    .card li { margin: 0.75rem 0; line-height: 1.8; }
+    .card h2 { margin: 0.25rem 0 0rem; }
+    .card section { margin-bottom: 2.25rem; }
+    .toc {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem 1rem; margin-top: 1rem;
+    }
+    .toc a {
+      text-decoration: none; color: var(--primary); font-weight: 600; background: #ffffff; border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.6rem 0.8rem; display: inline-block;
+    }
+    section { scroll-margin-top: 120px; }
+    .meta { margin-top: 1rem; color: var(--text-gray); font-size: 0.9rem; }
+    footer {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: rgba(255, 255, 255, 0.9); padding: 3rem 8% 2rem; text-align: center;
+    }
+    footer .footer-logo { font-weight: 800; margin-bottom: 0.5rem; }
+    a { color: var(--primary); }
+  </style>
 </head>
 <body>
-
-    <div class="bg-orbs">
-        <div class="orb orb1"></div>
-        <div class="orb orb2"></div>
-        <div class="orb orb3"></div>
+  <div class="bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <nav>
+    <div class="logo">INSTRY.AI</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
-
-    <nav>
-        <div class="logo">MALA TECH</div>
-        <div class="nav-links">
-            <a href="#solutions">Solutions</a>
-            <a href="#innovation">Innovation</a>
-            <a href="#about">About</a>
+  </nav>
+  <header class="hero">
+    <h1>Privacy Policy</h1>
+    <p><span class="gradient-text">Instry.ai</span> protects your privacy across iOS, Android, and Web.</p>
+  </header>
+  <section class="section section-light">
+    <div class="container">
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 0.25rem;">Contents</h2>
+        <p class="section-subtitle" style="text-align: center; color: var(--text-gray); margin-bottom: 1rem;">Sections of the Instry.ai Privacy Policy</p>
+        <div class="toc">
+          <a href="#intro">Introduction</a>
+          <a href="#collect">Information We Collect</a>
+          <a href="#use">How We Use Information</a>
+          <a href="#store">Data Storage & Retention</a>
+          <a href="#permission">Permissions & Third Parties</a>
+          <a href="#minor">Children’s Privacy</a>
+          <a href="#transfer">International Transfers</a>
+          <a href="#rights">Your Rights</a>
+          <a href="#security">Security</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#changes">Changes to This Policy</a>
         </div>
-    </nav>
-
-    <header class="hero">
-        <h1>Next-Gen Commerce <br><span class="gradient-text">Driven by AI.</span></h1>
-        <p>Mala Tech LLC redefines global retail by integrating Artificial Intelligence with the Creator Economy to build scalable, high-converting SaaS ecosystems.</p>
-        <div class="ai-badge">⚡ AI-POWERED INTELLIGENCE</div>
-    </header>
-
-    <section id="solutions" class="section section-light">
-        <h2 class="section-title">Core Expertise</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="card-icon">🤖</span>
-                <h3>AI-Driven Retail</h3>
-                <p>Automated inventory forecasting and dynamic pricing engines designed to maximize ROI across global marketplaces.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">📱</span>
-                <h3>Social Commerce</h3>
-                <p>Scaling influencer-led brands by connecting viral content with seamless supply chains and global fulfillment tech.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">☁️</span>
-                <h3>Cloud SaaS</h3>
-                <p>Enterprise tools built to synchronize multi-channel operations across Amazon, Shopify, and TikTok Shop.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="innovation" class="section">
-        <h2 class="section-title">Strategic Innovation</h2>
-        <div class="highlight-grid">
-            <div class="highlight-box ai-box">
-                <h3>Intelligent Automation</h3>
-                <p>Reducing operational costs by up to 60% through custom LLM agents for customer insight and market research.</p>
-            </div>
-            <div class="highlight-box creator-box">
-                <h3>Creator Ecosystems</h3>
-                <p>Building the technical backbone for D2C brands, allowing creators to focus on storytelling while we handle the data.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-light">
-        <div style="text-align: center;">
-            <h2 class="section-title">Global Reach</h2>
-            <div class="stats-container">
-                <div class="stat-item"><span class="stat-number">50M+</span><p class="stat-label">GMV Managed</p></div>
-                <div class="stat-item"><span class="stat-number">12+</span><p class="stat-label">SaaS Modules</p></div>
-                <div class="stat-item"><span class="stat-number">24/7</span><p class="stat-label">AI Monitoring</p></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">MALA TECH LLC</div>
-        <p>The Intersection of Technology, Intelligence, and Global Trade.</p>
-        
-        <!-- <div class="address-box">
-            <strong style="display: block; margin-bottom: 0.5rem; color: white;">Registered Address:</strong>
-            30 N Gould St Ste R, Sheridan, WY 82801, United States
-        </div> -->
-
-        <p style="margin-top: 3rem; font-size: 0.85rem; opacity: 0.6;">
-            &copy; 2026 Mala Tech LLC. All rights reserved.
-        </p>
-    </footer>
-
-    <div id="cookie-banner">
-        <p style="font-size: 0.9rem; color: var(--text-gray);">
-            We use cookies to enhance your experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies.
-        </p>
-        <button class="cookie-btn" onclick="acceptCookies()">Accept All</button>
+      </div>
     </div>
-
-    <script>
-        // Cookie Banner Logic
-        window.onload = function() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    document.getElementById('cookie-banner').classList.add('show');
-                }, 2000);
-            }
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.remove('show');
-        }
-    </script>
-
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <section id="intro">
+          <h2>Introduction</h2>
+          <p>We value your privacy and data security. This Privacy Policy explains how Instry.ai collects, uses, and protects your information when providing features such as image style analysis, wardrobe management, and account sign-in.</p>
+        </section>
+        <section id="collect">
+          <h2>Information We Collect</h2>
+          <ul>
+            <li>Images & media: When you take or select photos for style analysis, we process those images (which may include compression and hash computation) and send them to our cloud analysis API.</li>
+            <li>Device & language info: To improve experience and prevent abuse, we may collect device identifiers (e.g., device ID) and language preferences.</li>
+            <li>Account information: If you sign in via Apple or Google, we receive the necessary user profile and tokens returned by those platforms to complete authentication.</li>
+            <li>Local wardrobe data: Wardrobe entries you save are stored on your device for management and display.</li>
+            <li>Network request logs: To maintain stability and security, we may log necessary request statuses and error information.</li>
+          </ul>
+        </section>
+        <section id="use">
+          <h2>How We Use Information</h2>
+          <ul>
+            <li>Provide and optimize style analysis, including image processing and returning cloud analysis results.</li>
+            <li>Enable and maintain account sign-in, session management, and basic anti-abuse and security auditing.</li>
+            <li>Display and manage your wardrobe data locally; we do not sell this to third parties.</li>
+            <li>Improve user experience, including localization and performance optimization.</li>
+          </ul>
+        </section>
+        <section id="store">
+          <h2>Data Storage & Retention</h2>
+          <ul>
+            <li>Local data (e.g., wardrobe entries) remain on your device and can be deleted at any time.</li>
+            <li>Images sent to the cloud for analysis are processed within the analysis workflow solely to generate results for you and are not sold externally.</li>
+            <li>Account-related data and tokens are retained for the necessary period under applicable laws and business needs, with reasonable security measures applied.</li>
+          </ul>
+        </section>
+        <section id="permission">
+          <h2>Permissions & Third Parties</h2>
+          <ul>
+            <li>Camera & photo library: Used to capture or select images for analysis. You can revoke permissions anytime in your device settings.</li>
+            <li>Third-party sign-in: We use Apple and Google sign-in services and process related information only within the scope necessary to complete authentication.</li>
+            <li>Cloud API: Analysis requests are sent to our backend via controlled network interfaces.</li>
+          </ul>
+        </section>
+        <section id="minor">
+          <h2>Children’s Privacy</h2>
+          <p>We do not target minors. If you are a guardian and believe your child provided us information without consent, please contact us promptly to assist with deletion.</p>
+        </section>
+        <section id="transfer">
+          <h2>International Transfers</h2>
+          <p>To provide reliable services, data may be transferred and processed across servers in different regions. We follow applicable laws and apply reasonable security and compliance measures.</p>
+        </section>
+        <section id="rights">
+          <h2>Your Rights</h2>
+          <ul>
+            <li>Access & rectification: You have the right to access and correct your data.</li>
+            <li>Deletion & consent withdrawal: You can delete local wardrobe data and withdraw camera or photo permissions in system settings. Contact us to request deletion of account-related data.</li>
+            <li>Complaints & feedback: For questions or complaints about privacy and data use, contact us using the details below.</li>
+          </ul>
+        </section>
+        <section id="security">
+          <h2>Security</h2>
+          <p>We apply reasonable technical and organizational measures to protect data, including transport encryption, access controls, and data minimization. No system can guarantee absolute security; please use the app responsibly and safeguard your personal information.</p>
+        </section>
+        <section id="contact">
+          <h2>Contact Us</h2>
+          <p>For privacy support or data requests, email <a href="mailto:support@instry.ai">support@instry.ai</a>.</p>
+        </section>
+        <section id="changes">
+          <h2>Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time. Material changes will be communicated appropriately. Continued use after updates indicates your acceptance of the new terms.</p>
+        </section>
+        <div class="meta">Last updated: 2026-01-13</div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo">INSTRY.AI</div>
+    <p>Privacy-first experiences powered by intelligent analysis.</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">© 2026 Instry.ai. All rights reserved.</p>
+  </footer>
 </body>
 </html>
