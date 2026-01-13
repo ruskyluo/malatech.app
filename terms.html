@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use - Instry.ai</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --accent: #06b6d4;
+      --accent-light: #22d3ee;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --text-dark: #1e293b;
+      --text-gray: #475569;
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --border: #e2e8f0;
+      --maxw: 1000px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .bg-orbs {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: float 20s ease-in-out infinite;
+    }
+    .orb1 { width: 500px; height: 500px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); top: -10%; left: -10%; }
+    .orb2 { width: 400px; height: 400px; background: linear-gradient(135deg, #8b5cf6, #ec4899); top: 20%; right: -5%; animation-delay: 5s; }
+    .orb3 { width: 350px; height: 350px; background: linear-gradient(135deg, #22d3ee, #06b6d4); bottom: 10%; left: 30%; animation-delay: 10s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 8%; background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 9999;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text-gray);
+      margin-left: 3rem; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .hero { padding: 8rem 8% 3rem; text-align: center; position: relative; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: 1rem; letter-spacing: -0.03em; line-height: 1.1; font-weight: 800; }
+    .gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 2rem; color: var(--text-gray); }
+    .section { padding: 4rem 8%; }
+    .section-light { background: var(--bg-light); }
+    .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 1rem; font-weight: 800; }
+    .container { max-width: var(--maxw); margin: 0 auto; }
+    .card {
+      background: white; padding: 2rem; border-radius: 18px; border: 2px solid var(--border);
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 36px rgba(30, 64, 175, 0.12); }
+    .card::before {
+      content: ""; position: absolute; top: 0; left: 0; height: 4px; width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      opacity: 0.9;
+    }
+    .card p { color: var(--text-dark); margin: 0 0 1.75rem; line-height: 1.85; }
+    .card ul, .card ol { color: var(--text-dark); margin: 0 0 1.75rem 1.5rem; padding: 0; }
+    .card li { margin: 0.75rem 0; line-height: 1.8; }
+    .card h2 { margin: 0.25rem 0 0rem; }
+    .card section { margin-bottom: 2.25rem; }
+    .toc {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem 1rem; margin-top: 1rem;
+    }
+    .toc a {
+      text-decoration: none; color: var(--primary); font-weight: 600; background: #ffffff; border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.6rem 0.8rem; display: inline-block;
+    }
+    section { scroll-margin-top: 120px; }
+    .meta { margin-top: 1rem; color: var(--text-gray); font-size: 0.9rem; }
+    footer {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: rgba(255, 255, 255, 0.9); padding: 3rem 8% 2rem; text-align: center;
+    }
+    footer .footer-logo { font-weight: 800; margin-bottom: 0.5rem; }
+    a { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <nav>
+    <div class="logo">INSTRY.AI</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </nav>
+  <header class="hero">
+    <h1>Terms of Use</h1>
+    <p><span class="gradient-text">Instry.ai</span> services and your responsibilities.</p>
+  </header>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 0.25rem;">Contents</h2>
+        <p class="section-subtitle" style="text-align: center; color: var(--text-gray); margin-bottom: 1rem;">Sections of the Instry.ai Terms of Use</p>
+        <div class="toc">
+          <a href="#acceptance">Acceptance of Terms</a>
+          <a href="#eligibility">Eligibility</a>
+          <a href="#accounts">Accounts & Security</a>
+          <a href="#use">Permitted Use</a>
+          <a href="#prohibited">Prohibited Conduct</a>
+          <a href="#content">Content & License</a>
+          <a href="#thirdparty">Third-Party Services</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#termination">Termination</a>
+          <a href="#disclaimer">Disclaimers</a>
+          <a href="#liability">Limitation of Liability</a>
+          <a href="#indemnity">Indemnification</a>
+          <a href="#law">Governing Law</a>
+          <a href="#changes">Changes to Terms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <section id="acceptance">
+          <h2>Acceptance of Terms</h2>
+          <p>By accessing or using Instry.ai’s applications and services (iOS, Android, Web), you agree to be bound by these Terms of Use. If you do not agree, do not use the services.</p>
+        </section>
+        <section id="eligibility">
+          <h2>Eligibility</h2>
+          <p>You must have the legal capacity to enter into these Terms under the laws of your jurisdiction. The services are not directed to minors.</p>
+        </section>
+        <section id="accounts">
+          <h2>Accounts & Security</h2>
+          <p>You may sign in via Apple or Google. You are responsible for safeguarding your account credentials and tokens, and for all activities under your account.</p>
+        </section>
+        <section id="use">
+          <h2>Permitted Use</h2>
+          <ul>
+            <li>Use the services to analyze your images for style insights and manage your local wardrobe data.</li>
+            <li>Comply with applicable laws and these Terms when using the services.</li>
+          </ul>
+        </section>
+        <section id="prohibited">
+          <h2>Prohibited Conduct</h2>
+          <ul>
+            <li>Engaging in illegal, harmful, or abusive activities.</li>
+            <li>Attempting to reverse engineer, disrupt, or bypass security or usage limits.</li>
+            <li>Automated scraping or bulk data extraction without authorization.</li>
+            <li>Uploading content that infringes rights or violates laws.</li>
+          </ul>
+        </section>
+        <section id="content">
+          <h2>Content & License</h2>
+          <p>You retain rights to your images. You grant us a limited license to process your images solely to provide analysis results. You represent that you have the right to upload and process such content.</p>
+        </section>
+        <section id="thirdparty">
+          <h2>Third-Party Services</h2>
+          <p>The services may integrate third-party sign-in (Apple, Google) and cloud analysis APIs. We are not responsible for third-party services’ availability or policies.</p>
+        </section>
+        <section id="privacy">
+          <h2>Privacy</h2>
+          <p>Your use is subject to our Privacy Policy. See <a href="privacy.html">Privacy Policy</a> for details on data collection and use.</p>
+        </section>
+        <section id="termination">
+          <h2>Termination</h2>
+          <p>We may suspend or terminate access if you violate these Terms or for security and compliance reasons. You may stop using the services at any time.</p>
+        </section>
+        <section id="disclaimer">
+          <h2>Disclaimers</h2>
+          <p>The services are provided “as is” without warranties of any kind, to the extent permitted by law.</p>
+        </section>
+        <section id="liability">
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, we shall not be liable for indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the services.</p>
+        </section>
+        <section id="indemnity">
+          <h2>Indemnification</h2>
+          <p>You agree to defend, indemnify, and hold us harmless from claims arising from your content or misuse of the services.</p>
+        </section>
+        <section id="law">
+          <h2>Governing Law</h2>
+          <p>These Terms are governed by the laws of the State of Wyoming, USA, without regard to its conflict of law principles. Venue is Sheridan, Wyoming.</p>
+        </section>
+        <section id="changes">
+          <h2>Changes to Terms</h2>
+          <p>We may update these Terms from time to time. Continued use after updates indicates acceptance of the revised Terms.</p>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>For questions regarding these Terms, email <a href="mailto:support@instry.ai">support@instry.ai</a>.</p>
+        </section>
+        <div class="meta">Last updated: 2026-01-13</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">INSTRY.AI</div>
+    <p>Building trustworthy, privacy-first experiences.</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">© 2026 Instry.ai. All rights reserved.</p>
+  </footer>
+</body>
+</html>
